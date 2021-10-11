@@ -2,7 +2,7 @@ float rotSecs = 0;
 float rotMins = 0;
 float rotHours = 0;
 
-int s=0;
+int s = 0;
 int m;
 int h;
 int d;
@@ -44,7 +44,7 @@ void setFace() {
     stroke(55);
     ellipse(width / 2, height / 2, faceSize, faceSize);
     fill(100);
-    ellipse(width / 2, height / 2, faceSize-15, faceSize-15);
+    ellipse(width / 2, height / 2, faceSize - 15, faceSize - 15);
     
     stroke(0, 127, 255, 44);
     for (int i = 0; i < 12; i++) {
@@ -52,14 +52,14 @@ void setFace() {
         pushMatrix();
         translate(width / 2, height / 2);
         rotate(rot);
-        line(0, faceSize / 5, 0, faceSize / 2-10);
+        line(0, faceSize / 5, 0, faceSize / 2 - 10);
         popMatrix();
     }
     pushMatrix();
-    translate(width/2,height/2);
+    translate(width / 2,height / 2);
     fill(#5F4949,120);
-    square(20,-80,80);
-    square(120,-80,80);
+    square(20, - 80,80);
+    square(120, - 80,80);
     popMatrix();
 }
 
@@ -91,39 +91,44 @@ void rotTime() {
     popMatrix();
     
     pushMatrix();
-    translate(width/2,height/2);
+    translate(width / 2,height / 2);
     rotate(rotMins);
     fill(55);
     stroke(55);
-    line(0,0,0,-150);
-    ellipse(0,-150,10,10);
+    line(0,0,0, - 150);
+    ellipse(0, - 150,10,10);
     popMatrix();
-
+    
     pushMatrix();
-    translate(width/2,height/2);
+    translate(width / 2,height / 2);
     rotate(rotHours);
     fill(55);
     stroke(55);
-    line(0,0,0,-80);
-    ellipse(0,-80,10,10);
+    line(0,0,0, - 80);
+    ellipse(0, - 80,10,10);
     popMatrix();
-
-    //pushMatrix();
+    
+    pushMatrix();
+    translate(width / 2,height / 2);
     PImage round;
-    round=loadImage("r.png");
+    round = loadImage("r.png");
     imageMode(CENTER);
-    //rotate((3/ 12) * TWO_PI );
-    image(round, 400,300,500,500);
-    //popMatrix();////////////////////////加旋转////////////////////
+    rotate(cos(radians(map(frameCount, 0, 60, -90, 270))));
+    image(round, 0,0,500,500);
+    popMatrix();
+    
+    //rotSecs = ((float) s / 60) * TWO_PI * cos(radians(map(frameCount, 0, 60, -90, 270))));
+    
 }
 
-void dayTime(){
+
+void dayTime() {
     pushMatrix();
-    translate(width/2,height/2);
+    translate(width / 2,height / 2);
     fill(220);
     textFont(font,70);
     textAlign(CENTER, CENTER);
-    text(month(),60,-40);
-    text(day(),160,-40);
+    text(month(),60, - 40);
+    text(day(),160, - 40);
     popMatrix();
 }
