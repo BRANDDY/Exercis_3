@@ -98,7 +98,10 @@ PFont font;
 }
 
  public void rotTime() {
-    pushMatrix();
+    roteRule(rotSecs,220);
+    roteRule(rotMins,150);
+    roteRule(rotHours,80);
+    /*pushMatrix();
     translate(width / 2, height / 2);
     rotate(rotSecs);
     fill(55);
@@ -123,7 +126,7 @@ PFont font;
     stroke(55);
     line(0,0,0, - 80);
     ellipse(0, - 80,10,10);
-    popMatrix();
+    popMatrix();*/
     
     pushMatrix();
     translate(width / 2,height / 2);
@@ -132,12 +135,19 @@ PFont font;
     imageMode(CENTER);
     rotate(cos(radians(map(frameCount, 0, 60, -90, 270))));
     image(round, 0,0,500,500);
-    popMatrix();
-    
-    //rotSecs = ((float) s / 60) * TWO_PI * cos(radians(map(frameCount, 0, 60, -90, 270))));
-    
+    popMatrix();    
 }
 
+ public void roteRule(float t,int l){
+    pushMatrix();
+    translate(width / 2, height / 2);
+    rotate(t);
+    fill(55);
+    stroke(55);
+    line(0, 0, 0, -l);
+    ellipse(0, -l, 10,10);
+    popMatrix();
+}
 
  public void dayTime() {
     pushMatrix();

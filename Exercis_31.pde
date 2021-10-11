@@ -81,32 +81,9 @@ void rotAngle() {
 }
 
 void rotTime() {
-    pushMatrix();
-    translate(width / 2, height / 2);
-    rotate(rotSecs);
-    fill(55);
-    stroke(55);
-    line(0, 0, 0, -220);
-    ellipse(0, -220, 10,10);
-    popMatrix();
-    
-    pushMatrix();
-    translate(width / 2,height / 2);
-    rotate(rotMins);
-    fill(55);
-    stroke(55);
-    line(0,0,0, - 150);
-    ellipse(0, - 150,10,10);
-    popMatrix();
-    
-    pushMatrix();
-    translate(width / 2,height / 2);
-    rotate(rotHours);
-    fill(55);
-    stroke(55);
-    line(0,0,0, - 80);
-    ellipse(0, - 80,10,10);
-    popMatrix();
+    roteRule(rotSecs,220);
+    roteRule(rotMins,150);
+    roteRule(rotHours,80);
     
     pushMatrix();
     translate(width / 2,height / 2);
@@ -115,12 +92,19 @@ void rotTime() {
     imageMode(CENTER);
     rotate(cos(radians(map(frameCount, 0, 60, -90, 270))));
     image(round, 0,0,500,500);
-    popMatrix();
-    
-    //rotSecs = ((float) s / 60) * TWO_PI * cos(radians(map(frameCount, 0, 60, -90, 270))));
-    
+    popMatrix();    
 }
 
+void roteRule(float t,int l){
+    pushMatrix();
+    translate(width / 2, height / 2);
+    rotate(t);
+    fill(55);
+    stroke(55);
+    line(0, 0, 0, -l);
+    ellipse(0, -l, 10,10);
+    popMatrix();
+}
 
 void dayTime() {
     pushMatrix();
